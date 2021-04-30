@@ -1,0 +1,147 @@
+
+/* big tablets to 1200px (widths smaller than the 1140px row + margin) */
+@media only screen and (max-width: 1200px) {
+  .hero-text-box {
+    width: 100%;
+    padding: 0 2%;
+  }
+
+  .row {padding: 0 2%;}
+}
+
+#wrapper {display: none;}
+
+/* extra breakpoint for the price component */
+@media only screen and (max-width: 1073px) {
+  .plan-box {
+    width: 100%;
+    margin-left: 0%;
+    font-size: 85%;
+    }
+  .price {font-size: 280%;}
+  .price span {font-size: 40%;}
+}
+
+/* for small tablets to big tablets */
+@media only screen and (max-width: 1023px) {
+  body {font-size: 18px;}
+  section {padding: 60px 0px;}
+  .long-copy {width: 90%; margin: 0 5%;}
+  .steps-box:last-child {margin-top: 30px;}
+  .works-steps {margin-bottom: 10px;}
+  .works-steps:last-of-type {margin-bottom: 10px;}
+  .app-screen {width: 50%;}
+  .icon-small {width: 20px;}
+  .city-bullit {font-size: 90%;}
+
+  .plan-box {
+    width: 100%;
+    margin-left: 0%;
+    font-size: 80%;
+    }
+  .price {font-size: 260%;}
+  .price span {font-size: 40%;}
+
+  .section-form {
+    width: 80%;
+}
+
+/* for small phones (481px) to small tablets */
+@media only screen and (max-width: 768px) {
+
+  /* GENERAL */
+  body {font-size: 16px;}
+  section {padding: 30px 0;}
+  .row {padding: 0 4%;}
+  .col {
+    width: 100%;
+    margin: 2% 0;}
+  h2 {font-size: 120%;}
+
+  /* HEADER */
+  .logo {height: 80px;}
+
+  header {background-image: url(img/hero-overlay-mob.png);}
+
+  /* NAVIGATION */
+  .main-nav {display: none;}
+  #wrapper {display: inline-block;}
+
+  .main-nav {
+    float: left;
+    margin: 35px 0 0 25px;
+  }
+
+  .main-nav li {
+    display: block;
+  }
+
+  .main-nav li a:link,
+  .main-nav li a:visited {
+      display: block;
+      border: 0;
+      padding: 10px 0;
+      font-size: 100%;
+  }
+
+  .sticky .main-nav {margin-top: 10px;}
+
+  .sticky .main-nav li a:link,
+  .sticky .main-nav li a:visited {padding: 10px 0;}
+
+  .sticky #wrapper {margin-top: 10px; color: #555;}
+
+  .hero-text-box {padding: 0 4%; }
+  h1 {
+    margin-top: 120px;
+    font-size: 200%;}
+  .btn {margin-bottom: 15px;}
+
+  /* SECTION STEPS */
+  .steps-box {width: 100%;}
+  .steps-box:first-child {text-align: center;}
+  .app-screen {width: 30%;}
+  .works-step {margin-bottom: 20px;}
+  .works-step div {
+    height: 35px;
+    width: 35px;
+    font-size: 100%;
+    padding: 5px;
+    margin-right: 10px;
+  }
+  .works-step:last-of-type {margin-bottom: 30px;}
+  .btn-app img {
+    height: 30px;
+    width: auto;
+    margin-right: 5px;
+  }
+
+  /* SECTION FORM */
+    input[type=text],
+    input[type=email],
+    select,
+    textarea {
+      font-size: 80%;
+    }
+
+    .section-form {width: 80%;}
+
+    /* FOOTER */
+    .footer-nav {
+      float: none;
+      text-align: center;}
+    .social-icons {
+      float: none;
+      text-align: center;
+    }
+
+/* for small phones */
+@media only screen and (max-width: 480px) {
+
+  .section {padding: 25px 0;}
+  .section-form {width: 100%;}
+  h1 {
+    margin-top: 140px;
+    font-size: 160%;}
+  .btn {font-size: 80%;}
+}

@@ -1,0 +1,664 @@
+/* ------------------------------------------ */
+/* BASIC SET UP */
+/* ------------------------------------------ */
+
+/* orange: #e67e22 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+input[type=text],
+input[type=email],
+textarea,
+select,
+body {
+  color: #474646;
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.clearfix {zoom: 1}
+.clearfix {
+  content: '.';
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/* ------------------------------------------ */
+/* RE-USABLE COMPONENTS */
+/* ------------------------------------------ */
+
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 80px 0;
+}
+
+/* --- HEADINGS --- */
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 240%;
+  word-spacing: 4px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  margin-bottom: 30px;
+  color: #000;
+  font-size: 160%;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+h2:after {
+  display: block;
+  content: " ";
+  background-color: #e67e22;
+  margin: 20px auto 0 auto;
+  height: 2px;
+  width: 100px;
+}
+
+h3 {
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
+/* --- PARAGRAPHS --- */
+.long-copy {
+  line-height: 150%;
+  width: 70%;
+  margin: 0 15%;
+  text-align: center;
+}
+
+.box p {
+  font-size: 90%;
+  line-height: 145%;
+}
+
+/* --- ICONS --- */
+
+.icon-small {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  color: #e67e22;
+  font-size: 120%;
+  margin-right: 10px;
+
+  /* secrets to align text and icons: */
+  line-height:120px;
+  vertical-align: bottom;
+  /* or */
+  /* margin-top: -4px; */
+}
+
+/* --- BUTTONS --- */
+
+.btn:link,
+.btn:visited,
+input[type=submit] {
+  display: inline-block;
+  padding: 10px 30px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 200px;
+  border: 1px solid #e67e22;
+  background-color: #e67e22;
+  color: #fff;
+  transition: background-color, border, color 0.2s;
+
+}
+
+.btn-full:link,
+.btn-full:visited {
+  margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+  background-color: transparent;
+  color: #e67e22;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+  background-color: #cf6d17;
+  border: 1px solid #cf6d17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  color: #fff;
+}
+
+/* ------------------------------------------ */
+/* HEADER */
+/* ------------------------------------------ */
+
+header {
+  /* background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(img/hero-min.jpg); */
+  background-image: url(img/louie.png);
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+}
+
+.hero-text-box {
+  position: absolute;
+  width: 1140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.logo {
+  height: 150px;
+  width: auto;
+  float: left;
+  margin-top: 20px;
+}
+
+.logo-black {display: none;}
+
+/* Main nav */
+.main-nav {
+  display: inline-block;
+  float: left;
+  list-style: none;
+  margin-top: 60px;
+}
+
+.main-nav li {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+  padding: 8px 0;
+  color: orange;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: 300;
+  background-color: #fff;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+  border-bottom: 2px solid #e67e22;
+}
+
+
+/* transforming hamburgermenu */
+#wrapper {
+	background:transparent;
+	display:inline-block;
+	border-radius:5%;
+	margin-top:30px;
+	position: relative;
+  padding:1%;
+	cursor:pointer;
+  float: right;
+}
+.square {
+	width:30px;
+	height:30px;
+	position:relative;
+}
+.line {
+	position: absolute;
+	height: 3px;
+	width:100%;
+	background:#fff;
+	border-radius:3px;
+	transition: all cubic-bezier(0.26, 0.1, 0.27, 1.55) 0.35s;
+}
+.top {
+	top:18%;
+}
+.middle {
+	top:48%;
+}
+.bottom {
+	top:78%;
+}
+.icon.close .top {
+	transform:rotate(45deg);
+	top:48%;
+}
+.icon.close .middle, .icon.close .bottom {
+	transform:rotate(-45deg);
+	top:48%;
+}
+
+/* Sticky nav */
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 2px #efefef;
+  z-index: 9998;
+}
+
+.sticky .main-nav {
+  margin-top: 18px;
+}
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+  padding: 16px 0;
+  color: #555;
+}
+
+.sticky #wrapper {margin-top: 8px;}
+.sticky .line {background: #555;}
+
+.sticky .logo {display: none;}
+.sticky .logo-black {display: block;}
+
+.logo-black {
+  height: 50px;
+  width: auto;
+  float: left;
+  margin: 5px 0;
+}
+
+/* ------------------------------------------ */
+/* FEATURES SECTION */
+/* ------------------------------------------ */
+
+.section-features .long-copy {
+  margin-bottom: 40px;
+}
+
+.section-features ion-icon {
+  display: block;
+  font-size: 300%;
+  color: #e67e22;
+  --ionicon-stroke-width: 16px;
+  margin: 10px 0 20px 0;
+}
+
+.judo {
+  height: 60px;
+  margin-bottom: 22px;
+}
+
+/* ------------------------------------------ */
+/* MEALS SECTION */
+/* ------------------------------------------ */
+
+.section-meals {
+  padding: 0px;
+}
+
+.meals-showcase {
+  list-style: none;
+  width: 100%;
+}
+
+.meals-showcase li {
+  display: block;
+  float: left;
+  width: 25%;
+}
+
+.meal-photo {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.meal-photo img {
+  opacity: 0.7;
+  width: 100%;
+  height: auto;
+  transform: scale(1.15);
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.meal-photo img:hover {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+/* ------------------------------------------ */
+/* HOW IT WORKS SECTION */
+/* ------------------------------------------ */
+
+.section-steps {
+  background-color: #F5F4F5;
+}
+
+.steps-box:first-child {
+  text-align: right;
+  padding-right: 3%;
+  margin-top: 30px;
+}
+
+.steps-box:last-child {
+  padding-left: 3%;
+  margin-top: 70px;
+}
+
+.app-screen {
+  width: 40%;
+}
+
+.works-step {
+  margin-bottom: 50px;
+}
+
+.works-step div {
+  color: #e67e22;
+  border: 2px solid #e67e22;
+  display: inline-block;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  text-align: center;
+  font-size: 150%;
+  padding: 5px;
+  float: left;
+  margin-right: 20px;
+}
+
+.works-step:last-of-type {
+  margin-bottom: 80px;
+}
+
+.btn-app img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+/* ------------------------------------------ */
+/* CITIES SECTION */
+/* ------------------------------------------ */
+
+.section-cities img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.city-bullit {
+  margin-bottom: 5px;
+}
+
+.section-cities a:link,
+.section-cities a:visited {
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-bottom 0.2s;
+}
+
+.section-cities a:hover,
+.section-cities a:active {
+  border-bottom: 1px solid #e67e22;
+}
+
+/* ------------------------------------------ */
+/* TESTIMONIALS SECTION */
+/* ------------------------------------------ */
+
+.section-testimonials {
+  background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(img/back-customers-min.jpg);
+  background-size: cover;
+  color: #fff;
+  background-attachment: fixed;
+}
+
+.section-testimonials h2 {
+  color: #fff;
+}
+
+blockquote {
+  padding: 2%;
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+  margin-top: 40px;
+}
+
+blockquote:before {
+  content: "\201C";
+  font-size: 500%;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+cite {
+  font-size: 90%;
+  margin-top: 25px;
+  display: block;
+}
+
+cite img {
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* ------------------------------------------ */
+/* TESTIMONIALS SECTION */
+/* ------------------------------------------ */
+
+.section-signup {
+  background-color: #F5F4F5;
+}
+
+.plan-box {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: 5%;
+  box-shadow: 0 2px 2px #dddbdb;
+}
+
+.plan-box div {
+  padding: 15px;
+  border-bottom: 1px solid #F5F4F5;
+}
+
+.plan-box div:first-child {
+  background-color: #FCFBFC;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child {
+  text-align: center;
+  border: none;
+}
+
+.price {
+  color: #e67e22;
+  font-size: 300%;
+  margin-bottom: 10px;
+  font-weight: 100;
+}
+
+.price span {
+  font-size: 30%;
+  font-weight: 300;
+}
+
+.subtext {
+  font-size: 80%;
+}
+
+.plan-box ul {
+  list-style: none;
+  margin: 12px 0;
+}
+
+.plan-box ul li {
+  padding: 3px 0;
+}
+
+
+/* ------------------------------------------ */
+/* TESTIMONIALS SECTION */
+/* ------------------------------------------ */
+
+.section-form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea {
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #ceccce;
+}
+
+.contact {
+  font-weight: 300;
+}
+
+input[type=checkbox] {
+  margin: -4px 10px 17px 0;
+}
+
+textarea::placeholder {
+  padding-top: 0px;
+}
+
+/* to get rid of the blue outline that Chrome adds:  */
+*:focus {
+  outline:none;
+}
+
+/* ------------------------------------------ */
+/* FOOTER SECTION */
+/* ------------------------------------------ */
+
+footer {
+  background-color: #333;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer ul li {
+  display: inline-block;
+  margin: 0 7px 0 0;
+}
+
+footer ul li: last-child {
+  margin-right: 0px;
+}
+
+.footer-nav {
+  float: left;
+  color: #fff;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited {
+  font-size: 80%;
+  color: #fff;
+  text-decoration: none;
+  transition: transform border 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+  color: #e67e22;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #e67e22;
+}
+
+.social-icons {
+  float: right;
+}
+
+.social-icons ion-icon {
+  display: block;
+  font-size: 150%;
+  color: #e67e22;
+  margin: 0px 10px;
+  transition: transform font-size 0.8s;
+}
+
+.social-icons ion-icon:hover {
+  font-size: 180%;
+  vertical-align: top;
+  color: #d3671f;
+}
+
+footer p {
+  color: #fff;
+  font-size: 80%;
+  text-align: center;
+  margin: 30px 0 15px 0;
+}
+
+/* ------------------------------------------ */
+/* ANIMATIONS */
+/* ------------------------------------------ */
+
+.js--waypoint-1,
+.js--waypoint-2,
+.js--waypoint-3 {
+  opacity: 0;
+  animation-duration: 1s;
+}
+
+.js--waypoint-4 {
+  animation-duration: 1s;
+}
+
+.js--waypoint-1.animate__fadeIn,
+.js--waypoint-2.animate__fadeInUp,
+.js--waypoint-3.animate__fadeInUp
+ {
+  opacity: 1;
+}
